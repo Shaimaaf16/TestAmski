@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <string-array name="arabic_num">
+        <item>٠</item>
+        <item>١</item>
+        <item>٢</item>
+        <item>٣</item>
+        <item>٤</item>
+        <item>٥</item>
+        <item>٦</item>
+        <item>٧</item>
+        <item>٨</item>
+        <item>٩</item>
+    </string-array>
+
+</resources>

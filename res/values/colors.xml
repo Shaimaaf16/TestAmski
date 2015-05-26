@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="light_brown">#aa7243</color>
+    <!-- Testing -->
+    <color name="app_brown">#381e02</color>
+    <color name="brown">#381e02</color>
+    <color name="blue">#693e11</color>
+    <color name="light_blue">#693e11</color>
+    <color name="light_yellow">#c8ab2e</color>
+    <color name="white">#ffffff</color>
+     <color name="titleColor">#c8ab2e</color>
+    <color name="black">#000000</color>
+    <color name="filter">#77661e</color>
+
+</resources>

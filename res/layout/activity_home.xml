@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/date_bar"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:textColor="@color/titleColor" />
+
+            <TextView
+                android:id="@+id/datehegry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/textView1"
+                android:layout_margin="25dp"
+                android:text="2Ramdan"
+                android:textColor="@color/titleColor"
+                android:textSize="8pt"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/datemelady"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/textView1"
+                android:layout_margin="25dp"
+                android:text="18 Jun"
+                android:textColor="@color/titleColor"
+                android:textSize="8pt"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/prayer_table" >
+
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_margin="10dp"
+                layout="@layout/prayer_table" />
+        </RelativeLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp" >
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center" >
+
+                <LinearLayout
+                    android:id="@+id/nextprayer"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/weather_bg"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_margin="10dp"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/label_small"
+                        android:gravity="center" >
+
+                        <TextView
+                            android:id="@+id/nextsalah"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="Maghrib Prayer"
+                            android:textColor="@color/titleColor"
+                            android:textSize="8pt"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/remainingTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.2"
+                        android:text="@string/Remaining"
+                        android:textColor="@color/titleColor"
+                        android:textSize="8pt"
+                        android:textStyle="normal" />
+
+                    <ProgressBar
+                        android:id="@+id/progress"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="0.1"
+                        android:background="@color/titleColor"
+                        android:max="100"
+                        android:progress="45" />
+
+                    <TextView
+                        android:id="@+id/timeremaining"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.3"
+                        android:text="1Hour and 30m"
+                        android:textColor="@color/titleColor"
+                        android:textSize="8pt"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/weatherLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/weather_bg"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_margin="10dp"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/label_small"
+                        android:gravity="center" >
+
+                        <TextView
+                            android:id="@+id/Weather"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="@string/Weather"
+                            android:textColor="@color/titleColor"
+                            android:textSize="8pt"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="0.8"
+                        android:gravity="center" >
+
+                        <TextView
+                            android:id="@+id/WeatherDegree"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:paddingLeft="10dp"
+                            android:text="°"
+                            android:textColor="@color/titleColor"
+                            android:textSize="12pt"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_margin="10dp"
+                            android:layout_toRightOf="@id/WeatherDegree"
+                            android:src="@drawable/weather_ico" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center" >
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:background="@drawable/weather_bg"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_margin="10dp"
+                        android:layout_weight="0.1"
+                        android:background="@drawable/label_small"
+                        android:gravity="center" >
+
+                        <TextView
+                            android:id="@+id/quran"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="@string/quran"
+                            android:textColor="@color/titleColor"
+                            android:textSize="8pt"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/lastposition"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.2"
+                        android:text="@string/lastposition"
+                        android:textColor="@color/titleColor"
+                        android:textSize="8pt" >
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/surah"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.3"
+                        android:text="Surah"
+                        android:textColor="@color/titleColor"
+                        android:textSize="8pt" >
+                    </TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:background="@drawable/weather_bg"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_margin="10dp"
+                        android:layout_weight="0.1"
+                        android:background="@drawable/label_small"
+                        android:gravity="center" >
+
+                        <TextView
+                            android:id="@+id/duaa"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="@string/duaa"
+                            android:textColor="@color/titleColor"
+                            android:textSize="8pt"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/remaininglbl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.2"
+                        android:text="@string/Remaining"
+                        android:textColor="@color/titleColor"
+                        android:textSize="8pt" >
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/remainingTimeValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.3"
+                        android:text="2 Hours"
+                        android:textColor="@color/titleColor"
+                        android:textSize="8pt" >
+                    </TextView>
+                </LinearLayout>
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        
+        android:background="@drawable/weather_list" >
+
+        <TextView
+            android:id="@+id/day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:padding="5dip"
+            android:layout_centerVertical="true"
+            android:text="sabt"
+            android:textColor="@color/titleColor"
+            android:textSize="8pt" />
+
+        <ImageView
+            android:id="@+id/weather_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:scaleType="fitXY"
+            android:padding="5dip"
+            android:src="@drawable/cloudy"
+             />
+<LinearLayout  
+    android:layout_alignParentRight="true"
+    android:layout_width="wrap_content"
+    android:layout_centerVertical="true"
+    android:layout_height="wrap_content" >
+    
+    
+        <TextView
+            android:id="@+id/weather_max"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dip"
+            android:text="°"
+            android:textColor="#fff"
+            android:textSize="8pt" />
+        <TextView
+            android:id="@+id/weather_min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dip"
+            android:text="°"
+            android:textColor="#ccc"
+            android:textSize="8pt" />
+</LinearLayout>
+        
+
+       
+</RelativeLayout>

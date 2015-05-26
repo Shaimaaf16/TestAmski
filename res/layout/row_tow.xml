@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:background="@drawable/second_list"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:gravity="center" >
+
+    <TextView
+        android:id="@+id/salahname"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/sohour"
+        android:textColor="#fff"
+        android:textSize="6pt" />
+
+    <ImageView
+        android:id="@+id/vibrate"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:scaleType="fitCenter"
+        android:src="@drawable/vibrate_normal"
+        android:textColor="@color/titleColor" />
+
+    <ImageView
+        android:id="@+id/mute"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:scaleType="fitCenter"
+        android:src="@drawable/mute_normal"
+        android:textColor="@color/titleColor" />
+
+    <ImageView
+        android:id="@+id/sound"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:scaleType="fitCenter"
+        android:src="@drawable/sound_normal"
+        android:textColor="@color/titleColor" />
+
+    <TextView
+        android:id="@+id/salahtime"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="3:54"
+        android:textColor="#fff"
+        android:textSize="6pt" />
+
+</TableRow>
