@@ -2,6 +2,7 @@ package com.novelty.imsakia;
 
 import com.novelty.imsakia.R;
 import com.novelty.imsakia.activities.QuraanTabsActivity;
+import com.novelty.ui.AboutActivity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,7 +12,7 @@ import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 
 public class MoreActivity extends Activity implements OnClickListener {
-	private LinearLayout prayerlay, quranlay, laylatlay, branchslay,aboutlay;
+	private LinearLayout prayerlay, quranlay, laylatlay, branchslay,aboutlay, shareLay;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,9 @@ public class MoreActivity extends Activity implements OnClickListener {
 
 		aboutlay = (LinearLayout) findViewById(R.id.aboutlay);
 		aboutlay.setOnClickListener(this);
+
+		shareLay = (LinearLayout) findViewById(R.id.shareLay);
+		shareLay.setOnClickListener(this);
 	}
 
 	public void openPrayerSetting() {
@@ -50,18 +54,36 @@ public class MoreActivity extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		if (prayerlay == v) {
-			openPrayerSetting();
-		}
-		else  if(v==quranlay)
-		{
+		switch (v.getId()) {
+		case R.id.quranlay:
 			startActivity(new Intent(MoreActivity.this,QuraanTabsActivity.class));
-		}
-		else if(v==branchslay)
-		{
+			break;
+		case R.id.branchslay:
 			openBranches();
+			break;
+		case R.id.prayerlay:
+			openPrayerSetting();
+			break;
+		case R.id.aboutlay:
+			startActivity(AboutActivity.getActivityIntent(this));
+			break;
+		case R.id.shareLay:
+			// TODO For sharing on Google Play Store
+			final String appPackageName = getPackageName(); // getPackageName() from Context or Activity object
+			/*try {
+			    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName))); /**handle*/
+			/*} catch (android.content.ActivityNotFoundException anfe) {
+			    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
+			}
+			*/
+			// TODO For sharing on social network
+			startActivity(new Intent().setAction(Intent.ACTION_SEND)
+					  .putExtra(Intent.EXTRA_TEXT, "market://details?id=" + appPackageName)
+					  .setType("text/plain"));
+			break;
+		default:
+			break;
 		}
-
 	}
 
 }

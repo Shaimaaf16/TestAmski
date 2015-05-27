@@ -12,6 +12,8 @@ import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.nostra13.universalimageloader.utils.L;
+import com.parse.Parse;
+import com.parse.PushService;
 
 import android.app.Application;
 import android.content.Context;
@@ -61,6 +63,12 @@ public class App extends Application {
 						return thread;
 					}
 				});
+		
+		// Initialize the Parse SDK.
+		Parse.initialize(this, "iPqrvS1bimhoBFAAMfkuS5A1CjhCIHrGOJPNZYHx", "DB7yuMSUjCf1dxf5O9ot7yjDtm9wiPwLi2iA4iVs"); 
+
+		// Specify an Activity to handle all pushes by default.
+		PushService.setDefaultPushCallback(this, NotificationActivity.class);
 	}
 
 	public void runInBackground(final Runnable runnable) {

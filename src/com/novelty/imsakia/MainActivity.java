@@ -1,6 +1,5 @@
 package com.novelty.imsakia;
 
-
 import android.app.LocalActivityManager;
 import android.content.Intent;
 import android.graphics.Color;
@@ -16,79 +15,114 @@ import android.widget.TabHost.OnTabChangeListener;
 import android.widget.TextView;
 
 import com.novelty.imsakia.R;
+import com.novelty.imsakia.activities.TVActivity;
 import com.novelty.imsakia.services.ChatHeadService;
+import com.novelty.ui.TVGuidActivity;
 
 @SuppressWarnings("deprecation")
-public class MainActivity extends FragmentActivity implements OnClickListener{
+public class MainActivity extends FragmentActivity implements OnClickListener {
 
-    private MainActivity baseContext;
+	private MainActivity baseContext;
 	private TabHost mTabHost;
 	private TextView selectedTab;
-	private ImageView setting;
+	private ImageView setting, tv;
+
 	@Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        new DisplayMetrics();
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		new DisplayMetrics();
 		baseContext = this;
 
-        setContentView(R.layout.activity_main);
-        setting=(ImageView)findViewById(R.id.setting);
-        setting.setOnClickListener(this);
-        mTabHost = (TabHost)findViewById(R.id.tabhost);
-        selectedTab=(TextView)findViewById(R.id.selectedTab);
-        
-        LocalActivityManager mLocalActivityManager = new LocalActivityManager(baseContext, false);
-        mLocalActivityManager.dispatchCreate(savedInstanceState); // state will be bundle your activity state which you get in onCreate
-        mTabHost.setup(mLocalActivityManager);
-   
+		setContentView(R.layout.activity_main);
+		setting = (ImageView) findViewById(R.id.setting);
+		tv = (ImageView) findViewById(R.id.tv);
+		setting.setOnClickListener(this);
+		tv.setOnClickListener(this);
+		mTabHost = (TabHost) findViewById(R.id.tabhost);
+		selectedTab = (TextView) findViewById(R.id.selectedTab);
 
-    	mTabHost.addTab(mTabHost.newTabSpec("Home").setIndicator("",getResources().getDrawable(R.drawable.tab_select_home))
-				.setContent(new Intent(this,HomeActivity.class)));
-      	mTabHost.addTab(mTabHost.newTabSpec("Qibla").setIndicator("",getResources().getDrawable(R.drawable.tab_select_qibla))
-				.setContent(new Intent(this,CompassActivity.class)));
-      	mTabHost.addTab(mTabHost.newTabSpec("Duaa").setIndicator("",getResources().getDrawable(R.drawable.tab_select_duaa))
-				.setContent(new Intent(this,DuaaActivity.class)));
-      	mTabHost.addTab(mTabHost.newTabSpec("Weather").setIndicator("",getResources().getDrawable(R.drawable.tab_select_weather))
-				.setContent(new Intent(this,WeatherActivity.class)));
-      	mTabHost.addTab(mTabHost.newTabSpec("More").setIndicator("",getResources().getDrawable(R.drawable.tab_select_more))
-				.setContent(new Intent(this,MoreActivity.class)));
-    	mTabHost.setCurrentTab(0);
-    	selectedTab.setText("Home");
-    	 for(int i=0;i<mTabHost.getTabWidget().getChildCount();i++)
-         {
-     	 mTabHost.getTabWidget().getChildAt(i).setBackgroundColor(Color.TRANSPARENT); //unselected
-         }
-    	mTabHost.setOnTabChangedListener(new OnTabChangeListener(){
-    	        @Override
-    	        public void onTabChanged(String tabId) {
-    	            // TODO Auto-generated method stub
-    	             for(int i=0;i<mTabHost.getTabWidget().getChildCount();i++)
-    	                {
-    	            	 mTabHost.getTabWidget().getChildAt(i).setBackgroundColor(Color.TRANSPARENT); //unselected
-    	                }
-    	             mTabHost.getTabWidget().getChildAt(mTabHost.getCurrentTab()).setBackgroundColor(Color.TRANSPARENT); // selected
-//    	             mTabHost.getTabWidget().getChildAt(mTabHost.getCurrentTab()).getBackground().setColorFilter(Color.RED, PorterDuff.Mode.SRC_OUT);
+		LocalActivityManager mLocalActivityManager = new LocalActivityManager(
+				baseContext, false);
+		mLocalActivityManager.dispatchCreate(savedInstanceState); // state will
+																	// be bundle
+																	// your
+																	// activity
+																	// state
+																	// which you
+																	// get in
+																	// onCreate
+		mTabHost.setup(mLocalActivityManager);
 
-    	             selectedTab.setText(mTabHost.getCurrentTabTag());
-    	        }
-    	        });
+		mTabHost.addTab(mTabHost
+				.newTabSpec("Home")
+				.setIndicator("",
+						getResources().getDrawable(R.drawable.tab_select_home))
+				.setContent(new Intent(this, HomeActivity.class)));
+		mTabHost.addTab(mTabHost
+				.newTabSpec("Qibla")
+				.setIndicator("",
+						getResources().getDrawable(R.drawable.tab_select_qibla))
+				.setContent(new Intent(this, CompassActivity.class)));
+		mTabHost.addTab(mTabHost
+				.newTabSpec("Duaa")
+				.setIndicator("",
+						getResources().getDrawable(R.drawable.tab_select_duaa))
+				.setContent(new Intent(this, DuaaActivity.class)));
+		mTabHost.addTab(mTabHost
+				.newTabSpec("Weather")
+				.setIndicator(
+						"",
+						getResources().getDrawable(
+								R.drawable.tab_select_weather))
+				.setContent(new Intent(this, WeatherActivity.class)));
+		mTabHost.addTab(mTabHost
+				.newTabSpec("More")
+				.setIndicator("",
+						getResources().getDrawable(R.drawable.tab_select_more))
+				.setContent(new Intent(this, MoreActivity.class)));
+		mTabHost.setCurrentTab(0);
+		selectedTab.setText("Home");
+		for (int i = 0; i < mTabHost.getTabWidget().getChildCount(); i++) {
+			mTabHost.getTabWidget().getChildAt(i)
+					.setBackgroundColor(Color.TRANSPARENT); // unselected
+		}
+		mTabHost.setOnTabChangedListener(new OnTabChangeListener() {
+			@Override
+			public void onTabChanged(String tabId) {
+				// TODO Auto-generated method stub
+				for (int i = 0; i < mTabHost.getTabWidget().getChildCount(); i++) {
+					mTabHost.getTabWidget().getChildAt(i)
+							.setBackgroundColor(Color.TRANSPARENT); // unselected
+				}
+				mTabHost.getTabWidget().getChildAt(mTabHost.getCurrentTab())
+						.setBackgroundColor(Color.TRANSPARENT); // selected
+				// mTabHost.getTabWidget().getChildAt(mTabHost.getCurrentTab()).getBackground().setColorFilter(Color.RED,
+				// PorterDuff.Mode.SRC_OUT);
 
-//    	startService(new Intent(this, ChatHeadService.class));
+				selectedTab.setText(mTabHost.getCurrentTabTag());
+			}
+		});
+
+		// startService(new Intent(this, ChatHeadService.class));
 	}
-	
- 
+
 	public void openSetting() {
 		Intent setting = new Intent(MainActivity.this, SettingActivity.class);
 		startActivity(setting);
 	}
 
-
 	@Override
 	public void onClick(View v) {
 
-		if(v==setting)
-		{
+		switch (v.getId()) {
+		case R.id.setting:
 			openSetting();
+			break;
+		case R.id.tv:
+			startActivity(TVGuidActivity.getActivityIntent(this));
+			break;
+		default:
+			break;
 		}
 	}
 }
