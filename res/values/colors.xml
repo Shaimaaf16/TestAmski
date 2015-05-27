@@ -9,8 +9,9 @@
     <color name="light_blue">#693e11</color>
     <color name="light_yellow">#c8ab2e</color>
     <color name="white">#ffffff</color>
-     <color name="titleColor">#c8ab2e</color>
+    <color name="titleColor">#c8ab2e</color>
     <color name="black">#000000</color>
     <color name="filter">#77661e</color>
+    <color name="dark_yellow">#86721e</color>
 
 </resources>

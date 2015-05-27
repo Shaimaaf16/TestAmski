@@ -6,5 +6,6 @@
     <dimen name="tiny_margin">3dp</dimen>
     <dimen name="small_margin">6dp</dimen>
     <dimen name="mid_margin">10dp</dimen>
+    <dimen name="big_margin">15dp</dimen>
 
 </resources>
