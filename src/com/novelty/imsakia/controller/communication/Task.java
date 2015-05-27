@@ -8,7 +8,10 @@ import android.content.Context;
 public abstract class Task {
 
 	public enum TaskID {
-		GetCountriesTask,GetPrayerTime, LoginTask, SaveUserTask, GetAllZones, GetZoneByCountryId, GetDistrictByZoneId, Weather, GetDuaaListTask, GetVendors, GetAdvertisments, GetBranchesTask;
+		GetCountriesTask,GetPrayerTime, LoginTask, SaveUserTask, 
+		GetAllZones, GetZoneByCountryId, 
+		GetDistrictByZoneId, Weather, GetDuaaListTask, GetVendors, 
+		GetAdvertisments, GetBranchesTask, GetTVGuidListTask, GetTVGuidProgramsTask;
 
 	}
 	

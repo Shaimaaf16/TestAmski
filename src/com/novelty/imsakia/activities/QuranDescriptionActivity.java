@@ -15,11 +15,11 @@ import android.widget.LinearLayout;
 
 import com.novelty.imsakia.R;
 import com.novelty.imsakia.adapters.ViewPagerAdapter;
+import com.novelty.imsakia.data.cache.SharedPrefrencesDataLayer;
 import com.novelty.imsakia.database.QuranDAO;
 import com.novelty.imsakia.model.SurahAndChapterModel;
 import com.novelty.imsakia.utils.Params;
 
-import data.cache.SharedPrefrencesDataLayer;
 
 
 /**
