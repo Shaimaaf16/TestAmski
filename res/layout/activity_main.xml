@@ -30,6 +30,15 @@
                     android:src="@drawable/notify_ico" />
 
                 <ImageView
+                    android:id="@+id/tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_margin="10dp"
+                    android:layout_toLeftOf="@id/notif"
+                    android:src="@drawable/tv_ico" />
+
+                <ImageView
                     android:id="@+id/setting"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
