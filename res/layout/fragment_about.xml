@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/actionbar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_bar" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:text="@string/about"
+            android:textColor="@color/titleColor"
+            android:textSize="8pt" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/aboutAppLogoImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/actionbar"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/tiny_margin"
+        android:adjustViewBounds="true"
+        android:padding="@dimen/tiny_margin"
+        android:scaleType="fitXY"
+        android:src="@drawable/app_logo" />
+
+    <TextView
+        android:id="@+id/aboutVersionTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/aboutAppLogoImg"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"
+        android:text="@string/about_app_version"
+        android:textColor="@color/white"
+        android:textSize="8pt" />
+
+    <TextView
+        android:id="@+id/aboutAppTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/aboutVersionTxt"
+        android:padding="10dp"
+        android:text="@string/about_app_description"
+        android:textColor="@color/white"
+        android:textSize="8pt" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/aboutAppTxt" >
+
+        <TextView
+            android:id="@+id/aboutDevelopedByTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:text="@string/about_app_developed_by"
+            android:textColor="@color/light_yellow"
+            android:textSize="8pt" />
+
+        <ImageView
+            android:id="@+id/aboutCompanyLogoImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/tiny_margin"
+            android:adjustViewBounds="true"
+            android:padding="@dimen/tiny_margin"
+            android:scaleType="fitXY"
+            android:src="@drawable/app_logo" />
+    </RelativeLayout>
+
+</RelativeLayout>

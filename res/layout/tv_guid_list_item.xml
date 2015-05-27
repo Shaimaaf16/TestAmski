@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_tv"
+    android:orientation="horizontal" >
+
+    <ImageView
+        android:id="@+id/tvImageImg"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="@dimen/tiny_margin"
+        android:adjustViewBounds="true"
+        android:background="@color/light_yellow"
+        android:padding="@dimen/tiny_margin"
+        android:scaleType="fitXY"
+        android:src="@drawable/channel_ico" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/tvImageImg"
+        android:orientation="vertical"
+        android:padding="@dimen/tiny_margin" >
+
+        <TextView
+            android:id="@+id/tvNameTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_name"
+            android:textColor="@color/light_yellow"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvCategoryTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_category"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</RelativeLayout>

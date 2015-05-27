@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/actionbar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_bar" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:text="@string/tv_program_name"
+            android:textColor="@color/titleColor"
+            android:textSize="8pt" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/tvProgramImageImg"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/tiny_margin"
+        android:adjustViewBounds="true"
+        android:background="@color/light_yellow"
+        android:padding="@dimen/tiny_margin"
+        android:scaleType="fitXY"
+        android:src="@drawable/channel_ico" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="@dimen/tiny_margin"
+        android:layout_marginRight="@dimen/tiny_margin"
+        android:layout_marginTop="@dimen/big_margin"
+        android:background="@drawable/list_item"
+        android:gravity="left|center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/tiny_margin" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_presenter"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvPresenterTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_presenter_value"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/tiny_margin"
+        android:background="@drawable/list_item"
+        android:gravity="left|center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/tiny_margin" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_show_days"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvShowDaysTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_show_days_value"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/tiny_margin"
+        android:background="@drawable/list_item"
+        android:gravity="left|center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/tiny_margin" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_show_time"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvShowTimeTxt"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_show_time_value"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/followTxt"
+            android:layout_width="60dp"
+            android:layout_height="25dp"
+            android:layout_weight="1"
+            android:background="@color/light_yellow"
+            android:gravity="center"
+            android:text="@string/tv_follow"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

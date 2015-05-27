@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/actionbar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_bar" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:text="@string/tv_guid"
+            android:textColor="@color/titleColor"
+            android:textSize="8pt" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/dropDownMenuRL"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_yellow"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/tvImageImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/tiny_margin"
+            android:adjustViewBounds="true"
+            android:background="@color/light_yellow"
+            android:padding="@dimen/tiny_margin"
+            android:scaleType="fitXY"
+            android:src="@drawable/down" />
+
+        <TextView
+            android:id="@+id/channelNameTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/tvImageImg"
+            android:padding="10dp"
+            android:text="@string/tv_channel_list"
+            android:textColor="@color/black"
+            android:textSize="8pt" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/tvGuidListV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="3dip"
+        android:listSelector="@drawable/list_item_selected"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" />
+
+</LinearLayout>
