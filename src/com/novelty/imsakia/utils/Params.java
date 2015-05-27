@@ -17,4 +17,9 @@ public abstract class Params {
 		public static String LANG      = "lang";
 		public static String PREFS_NAME= "Imskyaa";
 	}
+	public static final class TVGuid {
+		public static final String CHANNEL_OBJECT = "channelObject";
+		public static final int TV_GUID_ACTVITY    = 1;
+		public static final int TV_PROGRAM_ACTVITY = 2;
+	}
 }
