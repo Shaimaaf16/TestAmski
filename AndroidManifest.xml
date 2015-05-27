@@ -22,17 +22,18 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
-    <permission android:name="com.novelty.imsakia.permission.C2D_MESSAGE"
-		android:protectionLevel="signature" />
-	<uses-permission android:name="com.novelty.imsakia.permission.C2D_MESSAGE" />
+    <permission
+        android:name="com.novelty.imsakia.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
 
-    
+    <uses-permission android:name="com.novelty.imsakia.permission.C2D_MESSAGE" />
+
     <uses-sdk
         android:minSdkVersion="15"
         android:targetSdkVersion="19" />
 
     <application
-        android:name="com.novelty.imsakia.Application"
+        android:name="com.novelty.imsakia.App"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -43,7 +44,7 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Black.NoTitleBar" >
         </activity>
-            <activity
+        <activity
             android:name="com.novelty.imsakia.NotificationActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Black.NoTitleBar" >
@@ -137,6 +138,30 @@
         </activity>
         <activity
             android:name=".activities.ChapterListActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.novelty.ui.TVGuidActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.novelty.ui.TVProgramDetailsActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.novelty.ui.TVProgramsActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.novelty.ui.AboutActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Black.NoTitleBar" >
