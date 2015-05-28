@@ -52,5 +52,27 @@
     <string name="provisions">Provisions of Fasting</string>
     <string name="keep_healthy">Keep healthy</string>
     <string name="greeting">Send greeting cards</string>
+     <string name="save_button">Save</string>
+    <string name="refresh_button">Refresh</string>
+    <string name="ok_button">OK</string>
+    <string name="alert_dialog_title">Profile</string>
+    <string name="alert_dialog_success">Saved!</string>
+    <string name="alert_dialog_failed">Failed with error.</string>
+    <string name="tv_guid">TV Guid</string>
+    <string name="tv_program_name">Program Name</string>
+    <string name="tv_channel_list">Channel List</string>
+    <string name="tv_presenter">Presenter : </string>
+    <string name="tv_show_days">Show Days : </string>
+    <string name="tv_show_time">Show Time : </string>
+    <string name="tv_presenter_value"> Naglaa</string>
+    <string name="tv_show_days_value"> Sunday - Monday every week</string>
+    <string name="tv_show_time_value"> 7:00 PM</string>
+    <string name="tv_follow">Follow</string>
+    <string name="about_app_version">Version</string>
+    <string name="about_app_developed_by">Developed By \n Novelty Company</string>
+    <string name="about_app_company">Novaity</string>
+    <string name="about_app_description">The word Ramadan comes from the Arabic root ramiḍa or ar-ramaḍ, which means scorching heat or dryness.[8] Fasting is fardh ("obligatory") for adult Muslims, except those who are suffering from an illness, travelling, are elderly, pregnant, breastfeeding, diabetic or going through menstrual bleeding.</string>
+    <string name="share">Share</string>
+    
 
 </resources>

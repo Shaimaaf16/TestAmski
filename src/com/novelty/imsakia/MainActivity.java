@@ -3,8 +3,8 @@ package com.novelty.imsakia;
 import android.app.LocalActivityManager;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.app.FragmentActivity;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -13,11 +13,12 @@ import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TabHost.OnTabChangeListener;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.novelty.imsakia.R;
-import com.novelty.imsakia.activities.TVActivity;
-import com.novelty.imsakia.services.ChatHeadService;
 import com.novelty.ui.TVGuidActivity;
+import com.parse.ParseException;
+import com.parse.ParseInstallation;
+import com.parse.SaveCallback;
 
 @SuppressWarnings("deprecation")
 public class MainActivity extends FragmentActivity implements OnClickListener {
@@ -34,6 +35,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 		baseContext = this;
 
 		setContentView(R.layout.activity_main);
+
+       
 		setting = (ImageView) findViewById(R.id.setting);
 		tv = (ImageView) findViewById(R.id.tv);
 		setting.setOnClickListener(this);
