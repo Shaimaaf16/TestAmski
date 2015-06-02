@@ -210,8 +210,13 @@
                 <action android:name="com.parse.push.intent.OPEN" />
             </intent-filter>
         </receiver>
-                <meta-data android:name="com.parse.push.notification_icon" android:resource="@drawable/ic_launcher"/>
-        
+
+        <meta-data
+            android:name="com.parse.push.notification_icon"
+            android:resource="@drawable/ic_launcher" />
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyC4S8bLBd7ezFNnkXYVtcM904s9uIz2PvQ" />
     </application>
 
 </manifest>
