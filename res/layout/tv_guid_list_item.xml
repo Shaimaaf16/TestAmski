@@ -22,6 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
+        android:layout_margin="@dimen/tiny_margin"
         android:layout_toRightOf="@id/tvImageImg"
         android:orientation="vertical"
         android:padding="@dimen/tiny_margin" >
@@ -30,6 +31,7 @@
             android:id="@+id/tvNameTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:singleLine="true"
             android:text="@string/tv_name"
             android:textColor="@color/light_yellow"
             android:textSize="14sp" />
@@ -38,6 +40,7 @@
             android:id="@+id/tvCategoryTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:singleLine="true"
             android:text="@string/tv_category"
             android:textColor="@color/white"
             android:textSize="14sp" />
