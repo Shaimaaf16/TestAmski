@@ -9,7 +9,7 @@ import com.novelty.imsakia.controller.communication.ConnectionDetector;
 import com.novelty.imsakia.controller.communication.DataRequestor;
 import com.novelty.imsakia.controller.communication.Task;
 import com.novelty.imsakia.controller.communication.Task.TaskID;
-import com.novelty.imsakia.model.TVGuidModel;
+import com.novelty.imsakia.model.TVGuidAndProgrameModel;
 import com.novelty.imsakia.tasks.GetTVGuidList;
 import com.novelty.imsakia.utils.Params;
 import com.novelty.imsakia.utils.UIUtils;
@@ -21,13 +21,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 public class TVGuidActivity extends Activity implements DataRequestor{
 	private ListView tvGuidListView;
 	private RelativeLayout dropDownMenuRL;
 	private ProgressDialog mSpinnerProgress;
 	private TVGuidListAdapter adapter        = null;
-	private ArrayList<TVGuidModel> tvGuidList = new ArrayList<TVGuidModel>();
+	private ArrayList<TVGuidAndProgrameModel> tvGuidList = new ArrayList<TVGuidAndProgrameModel>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +47,7 @@ public class TVGuidActivity extends Activity implements DataRequestor{
 		adapter        = new TVGuidListAdapter(this, tvGuidList, Params.TVGuid.TV_GUID_ACTVITY);
 		tvGuidListView.setAdapter(adapter);
 	}
-	
+
 	public static Intent getActivityIntent(Context context) {
 		return new Intent(context, TVGuidActivity.class);
 	}
@@ -66,13 +67,13 @@ public class TVGuidActivity extends Activity implements DataRequestor{
 			Task task = new GetTVGuidList(this, this.getApplicationContext());
 			AsyncTaskInvoker.RunTaskInvoker(task);
 		} else {
-			UIUtils.showToast(this, "No internet Connection");
+			UIUtils.showToast(getApplicationContext(), "No internet Connection");
 		}
 	}
 	@Override
 	public void onFinish(Task task) {
 		if (task.getId() == TaskID.GetTVGuidListTask && task.getResult() != null) {
-			ArrayList<TVGuidModel> model = (ArrayList<TVGuidModel>) task.getResult();
+			ArrayList<TVGuidAndProgrameModel> model = (ArrayList<TVGuidAndProgrameModel>) task.getResult();
 			adapter = new TVGuidListAdapter(this, model, Params.TVGuid.TV_GUID_ACTVITY);
 			tvGuidListView.setAdapter(adapter);
 		}

@@ -1,6 +1,7 @@
 package com.novelty.imsakia.model;
 
 import java.io.IOException;
+import java.io.Serializable;
 
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.annotate.JsonProperty;
@@ -9,8 +10,12 @@ import org.codehaus.jackson.map.ObjectMapper;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class TVGuidModel extends MarkerTVModel implements Parcelable{
+public class TVGuidModel implements Serializable, Parcelable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3477888486937950192L;
 	@JsonProperty("id")
 	String id;
 	@JsonProperty("name")

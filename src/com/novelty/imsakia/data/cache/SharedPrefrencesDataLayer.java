@@ -11,7 +11,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 
-import com.novelty.imsakia.App;
+import com.novelty.imsakia.Application;
 
 /**
  * 
@@ -123,7 +123,7 @@ public class SharedPrefrencesDataLayer {
 
 	public static void saveObjToInternalStorage(String fileName, Serializable obj) {
 	    try {
-	    	Context appContext = App.getInstance().getApplicationContext();
+	    	Context appContext = Application.getInstance().getApplicationContext();
 	    	File file = appContext.getFileStreamPath(fileName);
 	    	if (file.exists())
 	    		file.delete();
@@ -139,11 +139,11 @@ public class SharedPrefrencesDataLayer {
 	
 	public static Object loadObjFromInternalStorage(String fileName) {
 		try {
-			File file = App.getInstance().getApplicationContext().getFileStreamPath(fileName);
+			File file = Application.getInstance().getApplicationContext().getFileStreamPath(fileName);
 			if (!file.exists())
 				return null;
 			
-	        FileInputStream inputStream = App.getInstance().getApplicationContext().openFileInput(fileName);
+	        FileInputStream inputStream = Application.getInstance().getApplicationContext().openFileInput(fileName);
 	        ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
 	        return objectInputStream.readObject();
 	    } catch (Exception e) {
@@ -153,7 +153,7 @@ public class SharedPrefrencesDataLayer {
 	}
 	
 	public static void deleteObjFromStorage(String fileName) {
-		App.getInstance().getApplicationContext().getFileStreamPath(fileName).delete();
+		Application.getInstance().getApplicationContext().getFileStreamPath(fileName).delete();
 	}
 	
 	public static Typeface getAppTypeFace(Context context) {

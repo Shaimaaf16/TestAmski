@@ -18,8 +18,18 @@ public abstract class Params {
 		public static String PREFS_NAME= "Imskyaa";
 	}
 	public static final class TVGuid {
-		public static final String CHANNEL_OBJECT = "channelObject";
+
+		public static final String FOLLOW_FLAG            = "followOrUnfollow";
+		public static final String CHANNEL_OBJECT         = "channelObject";
+		public static final String GROUP_TYPE             = "groupType";
+		public static final String TV_DETAILS_OBJECT      = "tvDetailsObject";
+		public static final String PROGRAM_DETAILS_OBJECT = "programDetailsObject";
+		public static final String SERIESL_DETAILS_OBJECT = "seriesDetailsObject";
 		public static final int TV_GUID_ACTVITY    = 1;
 		public static final int TV_PROGRAM_ACTVITY = 2;
+		public static final int TV_GUID_PROGRAMS   = 0;
+		public static final int TV_GUID_SERIES     = 1;
+		public static final int TV_FOLLOW          = 0;
+		public static final int TV_UN_FOLLOW       = 1;
 	}
 }

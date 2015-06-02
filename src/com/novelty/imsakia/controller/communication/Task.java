@@ -11,7 +11,7 @@ public abstract class Task {
 		GetCountriesTask,GetPrayerTime, LoginTask, SaveUserTask, 
 		GetAllZones, GetZoneByCountryId, 
 		GetDistrictByZoneId, Weather, GetDuaaListTask, GetVendors, 
-		GetAdvertisments, GetBranchesTask, GetTVGuidListTask, GetTVGuidProgramsTask;
+		GetAdvertisments, GetBranchesTask, GetTVGuidListTask, GetTVGuidProgramsTask, GetProgramFollowersTask;
 
 	}
 	

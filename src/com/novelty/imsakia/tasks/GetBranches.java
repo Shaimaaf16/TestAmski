@@ -36,7 +36,7 @@ public class GetBranches extends Task {
 		setId(TaskID.GetBranchesTask);
 		this.mxontext = context;
 		url = Communication.CommonUser_API_URL + "vendor/getbranches";
-		httpBody="{\"UATHT\":\"F0IJryhHnTtujwFqoYAApHSSsduYAOg8jYol+FVD1K0=\",\"UserId\":\"8\",\"VendorId\":\"1\",\"LangId\":\"1\"}";
+		httpBody="{\"UATHT\":\"6735rk8j766yhj67-ANDROID\",\"UserId\":\"8\",\"VendorId\":\"1\",\"LangId\":\"1\"}";
 
 
 		// url = url.replaceAll("\\s+", "");

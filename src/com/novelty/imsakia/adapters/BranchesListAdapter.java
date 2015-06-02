@@ -2,6 +2,7 @@ package com.novelty.imsakia.adapters;
 
 import java.util.List;
 
+import com.novelty.imsakia.Application;
 import com.novelty.imsakia.R;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -9,7 +10,6 @@ import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
-import com.novelty.imsakia.App;
 import com.novelty.imsakia.activities.BranchesDetailsActivity;
 import com.novelty.imsakia.dataobjects.Branch;
 import com.novelty.imsakia.model.BranchesModel;
@@ -36,7 +36,7 @@ public class BranchesListAdapter extends BaseAdapter {
 	public BranchesListAdapter(Context context,List<Branch> branchesList) {
 		this.context       = context;
 		this.branchesList  = branchesList;
-		loader = App.getInstance().getImageLoader();
+		loader = Application.getInstance().getImageLoader();
 		
 		/** Initialize Options to display RoundedImage **/
 		options = new DisplayImageOptions.Builder()

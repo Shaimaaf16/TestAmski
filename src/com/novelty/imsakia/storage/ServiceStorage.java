@@ -17,6 +17,7 @@ import com.novelty.imsakia.dataobjects.Vendor;
 import com.novelty.imsakia.dataobjects.WeatherData;
 import com.novelty.imsakia.dataobjects.Zone;
 import com.novelty.imsakia.dataobjects.salahTime;
+import com.novelty.imsakia.model.TVGuidAndProgrameModel;
 import com.novelty.imsakia.model.TVGuidModel;
 
 public class ServiceStorage {
@@ -31,8 +32,8 @@ public class ServiceStorage {
 	public static ArrayList<Ads> adsList;
 	public static ArrayList<WeatherData> weatherlist;
 	public static ArrayList<Branch> branchList;
-	public static ArrayList<TVGuidModel> tvGuidList;
-
+	public static ArrayList<TVGuidAndProgrameModel> tvGuidList;
+	public static String totalFollowers;
 	
 	public static String loadJSONFromAsset(Context con,String fileName) {
 	    String json = null;

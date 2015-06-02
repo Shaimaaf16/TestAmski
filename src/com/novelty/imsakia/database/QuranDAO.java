@@ -2,7 +2,7 @@ package com.novelty.imsakia.database;
 
 import java.util.ArrayList;
 
-import com.novelty.imsakia.App;
+import com.novelty.imsakia.Application;
 import com.novelty.imsakia.model.SurahAndChapterModel;
 
 import android.content.Context;
@@ -33,7 +33,7 @@ public class QuranDAO {
 	}
 
 	private QuranDAO() {
-		dbAdapter = new DatabaseAdapter(App.getInstance().getApplicationContext(), 2);
+		dbAdapter = new DatabaseAdapter(Application.getInstance().getApplicationContext(), 2);
 	}
 
 	public static QuranDAO getInstance() {

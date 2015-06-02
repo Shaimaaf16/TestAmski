@@ -7,7 +7,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-import com.novelty.imsakia.App;
+import com.novelty.imsakia.Application;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -23,7 +23,7 @@ public class GlobalNames {
 	
 	public static void saveObjToInternalStorage(String fileName, Serializable obj) {
 	    try {
-	    	Context appContext = App.getInstance().getApplicationContext();
+	    	Context appContext = Application.getInstance().getApplicationContext();
 	    	File file = appContext.getFileStreamPath(fileName);
 	    	if (file.exists())
 	    		file.delete();
@@ -39,11 +39,11 @@ public class GlobalNames {
 	
 	public static Object loadObjFromInternalStorage(String fileName) {
 		try {
-			File file = App.getInstance().getApplicationContext().getFileStreamPath(fileName);
+			File file = Application.getInstance().getApplicationContext().getFileStreamPath(fileName);
 			if (!file.exists())
 				return null;
 			
-	        FileInputStream inputStream = App.getInstance().getApplicationContext().openFileInput(fileName);
+	        FileInputStream inputStream = Application.getInstance().getApplicationContext().openFileInput(fileName);
 	        ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
 	        return objectInputStream.readObject();
 	    } catch (Exception e) {
@@ -53,7 +53,7 @@ public class GlobalNames {
 	}
 	
 	public static void deleteObjFromStorage(String fileName) {
-		App.getInstance().getApplicationContext().getFileStreamPath(fileName).delete();
+		Application.getInstance().getApplicationContext().getFileStreamPath(fileName).delete();
 	}
 	
 	public static Typeface getAppTypeFace(Context context) {

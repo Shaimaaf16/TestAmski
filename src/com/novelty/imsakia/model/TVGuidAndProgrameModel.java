@@ -1,5 +1,6 @@
 package com.novelty.imsakia.model;
 
+
 import java.io.IOException;
 import java.io.Serializable;
 
@@ -12,12 +13,12 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 @SuppressLint("ParcelCreator")
-public class PresenterModel implements Serializable{
+public class TVGuidAndProgrameModel implements Serializable{
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 9083714713565847282L;
+	private static final long serialVersionUID = -3259379912231377443L;
 	@JsonProperty("id")
 	String id;
 	@JsonProperty("name")
@@ -26,6 +27,8 @@ public class PresenterModel implements Serializable{
 	String description;
 	@JsonProperty("image")
 	String image;
+	@JsonProperty("groups")
+	GroupsModel groups;
 	
 //	@Override
 //	public int describeContents() {
@@ -38,20 +41,20 @@ public class PresenterModel implements Serializable{
 //		// TODO Auto-generated method stub
 //	}
 	
-	public static PresenterModel FromJson(String jsonText) {
+	public static TVGuidAndProgrameModel FromJson(String jsonText) {
 		ObjectMapper mapper = new ObjectMapper();
-		PresenterModel presenterData = null;
+		TVGuidAndProgrameModel tvAndProgramData = null;
 		try {
-			presenterData = mapper.readValue(jsonText, PresenterModel.class);
+			tvAndProgramData = mapper.readValue(jsonText, TVGuidAndProgrameModel.class);
 			// display to console
-			System.out.println(presenterData);
+			System.out.println(tvAndProgramData);
 		} catch (JsonGenerationException e) {
 			e.printStackTrace();
 		}
 		catch (IOException e) {
 			e.printStackTrace();
 		}
-		return presenterData;
+		return tvAndProgramData;
 	}
 
 	public String getId() {
@@ -86,7 +89,11 @@ public class PresenterModel implements Serializable{
 		this.image = image;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public GroupsModel getGroups() {
+		return groups;
+	}
+
+	public void setGroups(GroupsModel groups) {
+		this.groups = groups;
 	}
 }

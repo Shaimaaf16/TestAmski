@@ -3,20 +3,15 @@ package com.novelty.ui;
 import java.util.ArrayList;
 
 import com.novelty.imsakia.R;
-import com.novelty.imsakia.activities.BaseActivity;
-import com.novelty.imsakia.adapters.TVGuidListAdapter;
-import com.novelty.imsakia.controller.communication.AsyncTaskInvoker;
-import com.novelty.imsakia.controller.communication.ConnectionDetector;
-import com.novelty.imsakia.controller.communication.DataRequestor;
-import com.novelty.imsakia.controller.communication.Task;
-import com.novelty.imsakia.controller.communication.Task.TaskID;
-import com.novelty.imsakia.model.TVGuidModel;
-import com.novelty.imsakia.tasks.GetTVProgramesList;
+import com.novelty.imsakia.adapters.TVProgramsListAdapter;
+import com.novelty.imsakia.model.GroupsModel;
+import com.novelty.imsakia.model.ProgramModel;
+import com.novelty.imsakia.model.SeriesModel;
+import com.novelty.imsakia.model.TVGuidAndProgrameModel;
 import com.novelty.imsakia.utils.Params;
-import com.novelty.imsakia.utils.UIUtils;
 
+import android.app.Activity;
 import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
@@ -28,92 +23,69 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class TVProgramsActivity extends BaseActivity implements OnClickListener , DataRequestor{
+
+public class TVProgramsActivity extends Activity implements OnClickListener{
 	private ListView tvGuidListView;
+	private TVGuidAndProgrameModel intentModel;
 	private RelativeLayout dropDownMenuRL;
-	private ProgressDialog mSpinnerProgress;
-	private TVGuidListAdapter adapter         = null;
-	private ArrayList<TVGuidModel> tvGuidList = new ArrayList<TVGuidModel>();
+	private TVProgramsListAdapter adapter         = null;
+	private ArrayList<ProgramModel> programsList = new ArrayList<ProgramModel>();
+	private ArrayList<SeriesModel> seriesList    = new ArrayList<SeriesModel>();
 	private TextView channelNameTxt;
-	private String[] listPrograms = new String[]{"MBC Max", "MBC 2", "MBC Action","MBC 3", "MBC 1","MBC 4"};
-	private ImageView tvImageImg;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.fragment_tv_guid_list);
 
 		/** Initialization of views **/
-		init(); 
+		init();
 	}
 	
 	public void init(){
-		/** Only for testing TVGuidList listView **/
-		testData();
 		
+		intentModel  = (TVGuidAndProgrameModel) getIntent().getSerializableExtra(Params.TVGuid.CHANNEL_OBJECT);
+		programsList = intentModel.getGroups().getProgram();
+		seriesList   = intentModel.getGroups().getSeries();
+		
+		/** Only for testing TVGuidList listView **/
 		tvGuidListView = (ListView) findViewById(R.id.tvGuidListV);
-		tvImageImg     = (ImageView) findViewById(R.id.tvImageImg);
 		dropDownMenuRL = (RelativeLayout) findViewById(R.id.dropDownMenuRL);
 		dropDownMenuRL.setVisibility(View.VISIBLE);
 		channelNameTxt = (TextView) findViewById(R.id.channelNameTxt);
-		channelNameTxt.setText(getIntentObject().getName());
-		adapter        = new TVGuidListAdapter(TVProgramsActivity.this, tvGuidList, Params.TVGuid.TV_PROGRAM_ACTVITY);
+		channelNameTxt.setText(intentModel.getName()+" "+ "Programs");
+		
+		adapter        = new TVProgramsListAdapter(TVProgramsActivity.this, programsList, Params.TVGuid.TV_GUID_PROGRAMS);
 		tvGuidListView.setAdapter(adapter);
 		
 		dropDownMenuRL.setOnClickListener(this);
 	}
-	
-	public void testData(){
-		TVGuidModel model = new TVGuidModel("CBC..",
-				"https://lh6.googleusercontent.com/-55osAWw3x0Q/URquUtcFr5I/AAAAAAAAAbs/rWlj1RUKrYI/s1024/A%252520Photographer.jpg", "TV Channel..");
-		tvGuidList.add(model);
-		model = new TVGuidModel("CBC Exra..", 
-				"https://lh6.googleusercontent.com/-55osAWw3x0Q/URquUtcFr5I/AAAAAAAAAbs/rWlj1RUKrYI/s1024/A%252520Photographer.jpg", "TV Channel..");
-		tvGuidList.add(model);
-		model = new TVGuidModel("MBC MAX..", 
-				"https://lh6.googleusercontent.com/-55osAWw3x0Q/URquUtcFr5I/AAAAAAAAAbs/rWlj1RUKrYI/s1024/A%252520Photographer.jpg", "TV Channel..");
-		tvGuidList.add(model);
-		model = new TVGuidModel("CBC Exra..", 
-				"https://lh6.googleusercontent.com/-55osAWw3x0Q/URquUtcFr5I/AAAAAAAAAbs/rWlj1RUKrYI/s1024/A%252520Photographer.jpg", "TV Channel..");
-		tvGuidList.add(model);
-		model = new TVGuidModel("MBC MAX..", 
-				"https://lh6.googleusercontent.com/-55osAWw3x0Q/URquUtcFr5I/AAAAAAAAAbs/rWlj1RUKrYI/s1024/A%252520Photographer.jpg", "TV Channel..");
-		tvGuidList.add(model);
-		model = new TVGuidModel("CBC Exra..", 
-				"https://lh6.googleusercontent.com/-55osAWw3x0Q/URquUtcFr5I/AAAAAAAAAbs/rWlj1RUKrYI/s1024/A%252520Photographer.jpg", "TV Channel..");
-		tvGuidList.add(model);
-		model = new TVGuidModel("MBC MAX..", 
-				"https://lh6.googleusercontent.com/-55osAWw3x0Q/URquUtcFr5I/AAAAAAAAAbs/rWlj1RUKrYI/s1024/A%252520Photographer.jpg", "TV Channel..");
-		tvGuidList.add(model);
-		model = new TVGuidModel("CBC Exra..", 
-				"https://lh6.googleusercontent.com/-55osAWw3x0Q/URquUtcFr5I/AAAAAAAAAbs/rWlj1RUKrYI/s1024/A%252520Photographer.jpg", "TV Channel..");
-		tvGuidList.add(model);
-		model = new TVGuidModel("MBC MAX..", 
-				"https://lh6.googleusercontent.com/-55osAWw3x0Q/URquUtcFr5I/AAAAAAAAAbs/rWlj1RUKrYI/s1024/A%252520Photographer.jpg", "TV Channel..");
-		tvGuidList.add(model);
-		model = new TVGuidModel("CBC Exra..", 
-				"https://lh6.googleusercontent.com/-55osAWw3x0Q/URquUtcFr5I/AAAAAAAAAbs/rWlj1RUKrYI/s1024/A%252520Photographer.jpg", "TV Channel..");
-		tvGuidList.add(model);
-		model = new TVGuidModel("MBC MAX..", 
-				"https://lh6.googleusercontent.com/-55osAWw3x0Q/URquUtcFr5I/AAAAAAAAAbs/rWlj1RUKrYI/s1024/A%252520Photographer.jpg", "TV Channel..");
-		tvGuidList.add(model);
-		model = new TVGuidModel("MBC MAX..", 
-				"https://lh6.googleusercontent.com/-55osAWw3x0Q/URquUtcFr5I/AAAAAAAAAbs/rWlj1RUKrYI/s1024/A%252520Photographer.jpg", "TV Channel..");
-		tvGuidList.add(model);
-	}
-	
-	public static Intent getActivityIntent(Context context, TVGuidModel model) {
+
+	public static Intent getActivityIntent(Context context, TVGuidAndProgrameModel model) {
 		return new Intent(context, TVProgramsActivity.class)
-					.putExtra(Params.TVGuid.CHANNEL_OBJECT, model);
+		.putExtra(Params.TVGuid.CHANNEL_OBJECT, model);
 	}
 
 	/**  Initialize of PhotoList Dialog **/
 	private void showProgramListDialog() {
 
+		String[] listIntent = null;
+		GroupsModel groupModel = intentModel.getGroups();
+		channelNameTxt.setText(intentModel.getName()+" "+ "Programs");
+		
+		if(groupModel.getProgram() != null && groupModel.getProgram().size() >0 
+			&& groupModel.getSeries() != null && groupModel.getSeries().size() >0 )
+			listIntent = new String[]{intentModel.getName()+" "+ "Programs" , intentModel.getName()+" "+"Series"};
+		else if(groupModel.getProgram() != null && groupModel.getProgram().size() >0)
+			listIntent = new String[]{intentModel.getName()+" "+ "Programs"};
+		
+
+		final String[] listPrograms = listIntent;
+		
 		/** Initialize of dialog **/
 		final Dialog dialog = new Dialog(TVProgramsActivity.this);
 
@@ -131,18 +103,20 @@ public class TVProgramsActivity extends BaseActivity implements OnClickListener 
 
 		/** set ListView initialization **/
 		ListView listView = (ListView) dialog.findViewById(R.id.tvProgramsListV);
-		listView.setSelector(R.drawable.list_item_selected_colored);
-		
 		ArrayAdapter<String> programsArrayAdapter = new ArrayAdapter<String>(this, 
-				R.layout.drop_down_list_item,R.id.tvProgramNameTxt, listPrograms);
+				R.layout.drop_down_list_item,R.id.tvProgramNameTxt, listIntent);
 		listView.setAdapter(programsArrayAdapter);
 		
 		listView.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View view,	int position, long id) {
 				channelNameTxt.setText(listPrograms[position]);
+				if(position == Params.TVGuid.TV_GUID_PROGRAMS)
+					adapter  = new TVProgramsListAdapter(TVProgramsActivity.this, programsList, Params.TVGuid.TV_GUID_PROGRAMS);
+				else
+					adapter  = new TVProgramsListAdapter(TVProgramsActivity.this, seriesList, Params.TVGuid.TV_GUID_SERIES);
+				tvGuidListView.setAdapter(adapter);
 				dialog.dismiss();
-				tvImageImg.setImageResource(R.drawable.down);
 			}
 		});
 
@@ -154,49 +128,10 @@ public class TVProgramsActivity extends BaseActivity implements OnClickListener 
 	public void onClick(View view) {
 		switch (view.getId()) {
 		case R.id.dropDownMenuRL:
-			tvImageImg.setImageResource(R.drawable.up);
 			showProgramListDialog();
 			break;
-
 		default:
 			break;
 		}
-	}
-	
-	public TVGuidModel getIntentObject() {
-		return (TVGuidModel) getIntent().getExtras().get(Params.TVGuid.CHANNEL_OBJECT);
-	}
-
-	public void getTVProgrameList() {
-		if (ConnectionDetector.getInstance(this).hasConnection()) {
-			mSpinnerProgress = new ProgressDialog(this);
-			mSpinnerProgress.setIndeterminate(true);
-			mSpinnerProgress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-			mSpinnerProgress.setMessage("Loading ....");
-			mSpinnerProgress.show();
-			Task task = new GetTVProgramesList(this, this.getApplicationContext());
-			AsyncTaskInvoker.RunTaskInvoker(task);
-		} else {
-			UIUtils.showToast(this, "No internet Connection");
-		}		
-	}
-	@Override
-	public void onStart(Task task) {
-		// TODO Auto-generated method stub
-	}
-
-	@Override
-	public void onFinish(Task task) {
-		if (task.getId() == TaskID.GetTVGuidProgramsTask && task.getResult() != null) {
-			ArrayList<TVGuidModel> model = (ArrayList<TVGuidModel>) task.getResult();
-			adapter = new TVGuidListAdapter(this, model, Params.TVGuid.TV_PROGRAM_ACTVITY);
-			tvGuidListView.setAdapter(adapter);
-		}
-		mSpinnerProgress.cancel();
-	}
-
-	@Override
-	public void handleClick() {
-		// TODO Auto-generated method stub
 	}
 }
