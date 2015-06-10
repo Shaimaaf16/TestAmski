@@ -14,8 +14,6 @@ import com.novelty.imsakia.controller.communication.DataRequestor;
 import com.novelty.imsakia.controller.communication.RequestHeader;
 import com.novelty.imsakia.controller.communication.ResponseObject;
 import com.novelty.imsakia.controller.communication.Task;
-import com.novelty.imsakia.controller.communication.Task.TaskID;
-import com.novelty.imsakia.dataobjects.Country;
 import com.novelty.imsakia.dataobjects.Vendor;
 import com.novelty.imsakia.storage.ServiceStorage;
 
@@ -23,7 +21,7 @@ public class GetVendorsList extends Task {
 
 	private String url;
 	Context mxontext;
-	String result = "";
+	ArrayList<Vendor> result;
 	private ResponseObject response;
 	public static String CONTENT_TYPE_KEY = "Content-type";
 	public static String ACCESS_TOKEN_KEY = "accessToken";
@@ -35,44 +33,37 @@ public class GetVendorsList extends Task {
 		setRequestor(requestor);
 		setId(TaskID.GetVendors);
 		this.mxontext = context;
-		url = Communication.CommonUser_API_URL + "vendor/getlist";
-		httpBody="{\"UATHT\":\"F0IJryhHnTtujwFqoYAApHSSsduYAOg8jYol+FVD1K0=\",\"UserId\":\"8\",\"LangId\":\"1\"}";
-
-
+		url           = Communication.CommonUser_API_URL + "vendor/getlist";
+		String auth   = "6735rk8j766yhj67-ANDROID";
+		int LangId    = 1;
+		httpBody      = "{\"UATHT\":\"" + auth + "\",\"LangId\":\"" + LangId + "\"}";
 	}
 
 	@Override
 	public void execute() {
 		response = (ResponseObject) Communication.postMethodWithBody(url, getHeadersList(), httpBody, mxontext);
-
 		System.out.println("url" + url);
 		mapServerError(response.getStatusCode());
-		String r = response.getResponseString();
+		String str = response.getResponseString();
 		JSONObject mainObject;
-		if (response.getStatusCode() == 200)
-		{
-		try {
-			mainObject = new JSONObject(r);
-			JSONArray jsonArray = mainObject.getJSONArray("vendors");
-
-			for (int i = 0; i < jsonArray.length(); i++) {
-
-				if (jsonArray.get(i) instanceof JSONObject) {
-
-					Vendor vendor = Vendor
-							.FromJson(((JSONObject) jsonArray.get(i))
-									.toString());
-					vendorList.add(vendor);
+		if (response.getStatusCode() == 200) {
+			try {
+				mainObject = new JSONObject(str);
+				JSONArray jsonArray = mainObject.getJSONArray("vendors");
+				for (int i = 0; i < jsonArray.length(); i++) {
+					if (jsonArray.get(i) instanceof JSONObject) {
+						Vendor vendor = Vendor.FromJson(((JSONObject) jsonArray.get(i)).toString());
+						vendorList.add(vendor);
+					}
 				}
-			}
-			Log.d("Shaimaa", "vendorList " + vendorList.size());
-			 ServiceStorage.vendorList=vendorList;
+				Log.d("Shaimaa", "vendorList " + vendorList.size());
+				ServiceStorage.vendorList = vendorList;
 
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
-	}
 	}
 
 	@Override
@@ -82,11 +73,8 @@ public class GetVendorsList extends Task {
 
 	public ArrayList<RequestHeader> getHeadersList() {
 		ArrayList<RequestHeader> headers = new ArrayList<RequestHeader>();
-		RequestHeader header = new RequestHeader(CONTENT_TYPE_KEY,
-				CONTENT_TYPE_VALUE);
+		RequestHeader header = new RequestHeader(CONTENT_TYPE_KEY, CONTENT_TYPE_VALUE);
 		headers.add(header);
-
 		return headers;
 	}
-
 }

@@ -74,5 +74,11 @@
     <string name="about_app_description">The word Ramadan comes from the Arabic root ramiḍa or ar-ramaḍ, which means scorching heat or dryness.[8] Fasting is fardh ("obligatory") for adult Muslims, except those who are suffering from an illness, travelling, are elderly, pregnant, breastfeeding, diabetic or going through menstrual bleeding.</string>
     <string name="share">Share</string>
     <string name="followers">Followers</string>
+    <string name="restaurants">Restaurants</string>
+    <string name="spectra">Welcome to Spectra \n
+As a team work of Spectra Restaurant and Café, we aim at promoting the 
+foodstuff industry through the branches, we establish and through the new dishes. \n</string>
+<string name="show_all_branches">Show all branches</string>
+<string name="show_menu">Show Menu</string>
 
 </resources>
